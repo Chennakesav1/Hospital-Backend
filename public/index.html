@@ -36,6 +36,17 @@
                 <input type="text" id="place" name="Place" placeholder="Place" required>
                 <input type="date" id="appDate" name="Appointment_Date" required>
                 <input type="time" id="appTime" name="Appointment_Time" required>
+
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label for="doctor">Select Doctor:</label>
+                    <select id="doctor" name="Selected_Doctor" required
+                        style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit;">
+                        <option value="" disabled selected>Choose a Doctor...</option>
+                        <option value="Dr. Smith - Cardiology">Dr. Smith - Cardiology</option>
+                        <option value="Dr. Sarah - Pediatrics">Dr. Sarah - Pediatrics</option>
+                        <option value="General">General Inquiry</option>
+                    </select>
+                </div>
                 <button type="submit" class="btn-submit">Register</button>
             </form>
             <div id="successMessage" class="hidden">
@@ -175,9 +186,12 @@
                 </div>
             </div>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.448729321692!2d78.35737787493598!3d17.438223883457653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9300601cefb5%3A0xa34658e071a5010!2sHospital!5e0!3m2!1sen!2sin!4v1772039365768!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                 
-        </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.448729321692!2d78.35737787493598!3d17.438223883457653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9300601cefb5%3A0xa34658e071a5010!2sHospital!5e0!3m2!1sen!2sin!4v1772039365768!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
     </section>
 
     <footer>
@@ -191,7 +205,7 @@
     </footer>
 
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>

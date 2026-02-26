@@ -35,6 +35,9 @@ const SHEET_ID = process.env.SPREADSHEET_ID;
 app.post('/api/appointments', async (req, res) => {
     try {
         const { patientName, parentName, place, appointmentDate, appointmentTime, selectedDoctor } = req.body;
+        values: [
+    [patientName, parentName, place, appointmentDate, appointmentTime, selectedDoctor]
+]
 
         const selectedDate = new Date(appointmentDate);
         const today = new Date();
