@@ -28,7 +28,7 @@ function closeModal() {
 }
 
 // Close modal if user clicks outside of it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         closeModal();
     }
@@ -45,8 +45,8 @@ if (dateInput) {
 
 
 // --- Handle Form Submission (To Local Node Server) ---
-form.addEventListener("submit", async function(e) {
-    e.preventDefault(); 
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
     const submitBtn = form.querySelector('.btn-submit');
     submitBtn.innerText = "Saving...";
@@ -59,15 +59,15 @@ form.addEventListener("submit", async function(e) {
         place: formData.get("Place"),
         appointmentDate: formData.get("Appointment_Date"),
         appointmentTime: formData.get("Appointment_Time"),
-        selectedDoctor: formData.get("Selected_Doctor") || "General" 
+        selectedDoctor: formData.get("Selected_Doctor") || "General"
     };
 
     try {
         // Pointing to your new local Node.js backend
         // Make sure you keep the /api/appointments at the very end!
-const response = await fetch("https://hospital-backend-zv0l.onrender.com/api/appointments", {
-    method: "POST",
-    // ... the rest of your code stays exactly the same
+        const response = await fetch("https://hospital-backend-zv0l.onrender.com/api/appointments", {
+            method: "POST",
+            // ... the rest of your code stays exactly the same
             headers: {
                 "Content-Type": "application/json"
             },
@@ -80,12 +80,12 @@ const response = await fetch("https://hospital-backend-zv0l.onrender.com/api/app
         if (response.ok) {
             form.style.display = "none";
             successMessage.classList.remove("hidden");
-            
+
             setTimeout(() => {
                 closeModal();
                 form.reset();
                 submitBtn.innerText = "Register";
-                form.style.display = "block"; 
+                form.style.display = "block";
                 successMessage.classList.add("hidden");
             }, 3000);
         } else {
@@ -110,10 +110,10 @@ function animateCounters() {
         const updateCount = () => {
             const target = +counter.getAttribute('data-target');
             const count = +counter.innerText;
-            
+
             // Calculate increment
             const inc = target / speed;
-            
+
             if (count < target) {
                 counter.innerText = Math.ceil(count + inc);
                 setTimeout(updateCount, 15);
@@ -128,7 +128,7 @@ function animateCounters() {
 // Simple Intersection Observer to trigger counter animation when section is visible
 const performanceSection = document.getElementById('performance');
 const observer = new IntersectionObserver((entries) => {
-    if(entries[0].isIntersecting) {
+    if (entries[0].isIntersecting) {
         animateCounters();
         observer.disconnect(); // Only animate once
     }
@@ -144,7 +144,7 @@ const contactForm = document.getElementById("contactForm");
 const contactSuccess = document.getElementById("contactSuccess");
 const contactSubmitBtn = document.getElementById("contactSubmitBtn");
 
-contactForm.addEventListener("submit", async function(e) {
+contactForm.addEventListener("submit", async function (e) {
     e.preventDefault(); // Prevent page reload
 
     // Gather all the data from the contact form
@@ -167,13 +167,13 @@ contactForm.addEventListener("submit", async function(e) {
             // Success! Hide form and show success message
             contactForm.style.display = "none";
             contactSuccess.classList.remove("hidden");
-            
+
             // Auto reset the form after 3 seconds
             setTimeout(() => {
                 contactForm.reset();
                 contactSubmitBtn.innerText = "Send Message";
                 // Restore the display property used in your CSS for this form
-                contactForm.style.display = "flex"; 
+                contactForm.style.display = "flex";
                 contactSuccess.classList.add("hidden");
             }, 3000);
         } else {
